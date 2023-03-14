@@ -36,7 +36,10 @@ public class GridSystemVisual : MonoBehaviour
             }
         }
     }
-
+    //mergeleme denemesi
+    //merge 2 denemsi8
+    //değişiklik
+    //Yeni bir şeyler yazdım.
     private void Update()
     {
         UpdateGridVisual();
