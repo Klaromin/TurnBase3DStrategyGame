@@ -28,12 +28,14 @@ public class UnitActionSystem : MonoBehaviour
             return;
         }
         Instance = this;
+        
     }
-
+    // 1-) Run order yüzünden selected unit Start'ta düşmüyordu o yüzden yukarıda awakete üniti seçmeye koydum. Kesin çözüm olduğunu hissedince startı sil.
+    // 2-) script execution orderda grid system visualı bir sonraya koyarak durumu çözdüm.
     private void Start()
     {
         SetSelectedUnit(selectedUnit);
-        
+        // SetSelectedUnit(selectedUnit);
     }
 
     private void Update()
