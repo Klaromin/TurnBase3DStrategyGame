@@ -15,3 +15,10 @@ public enum GridVisualType
     SoftRed,
     Yellow
 }
+
+public enum State
+{
+    WaitingForEnemyTurn,
+    TakingTurn,
+    Busy,
+}
