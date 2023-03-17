@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     
     private MoveAction _moveAction;
     private SpinAction _spinAction;
+    private ShootAction _shootAction;
     private BaseAction[] _baseActionArray;
     private GridPosition _gridPosition;
     private HealthSystem _healthSystem;
@@ -23,6 +24,7 @@ public class Unit : MonoBehaviour
         _healthSystem = GetComponent<HealthSystem>();
         _moveAction = GetComponent<MoveAction>();
         _spinAction = GetComponent<SpinAction>();
+        _shootAction = GetComponent<ShootAction>();
         _baseActionArray = GetComponents<BaseAction>();
     }
 
@@ -31,8 +33,12 @@ public class Unit : MonoBehaviour
         AddEvents();
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
-        
         OnAnyUnitSpawnedEvent?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnDestroy()
+    {
+        RemoveEvents();
     }
 
     private void Update()
@@ -56,6 +62,11 @@ public class Unit : MonoBehaviour
     {
         return _spinAction;
     }
+    
+    public ShootAction GetShootAction()
+    {
+        return _shootAction;
+    }
 
     public GridPosition GetGridPosition()
     {
@@ -72,6 +83,11 @@ public class Unit : MonoBehaviour
         return _baseActionArray;
     }
 
+    public float GetHealthNormalized()
+    {
+        return _healthSystem.GetHealthNormalized();
+    }
+
     public bool TrySpendActionPointsToTakeAction(BaseAction baseAction)
     {
         if (CanSpendActionPointsToTakeAction(baseAction))
@@ -84,7 +100,7 @@ public class Unit : MonoBehaviour
         return false;
     }
 
-    private bool CanSpendActionPointsToTakeAction(BaseAction baseAction)
+    public bool CanSpendActionPointsToTakeAction(BaseAction baseAction)
     {
         if (_actionPoints >= baseAction.GetActionPointsCost())
         {
@@ -135,6 +151,12 @@ public class Unit : MonoBehaviour
     {
         TurnSystem.Instance.OnTurnChangedEvent += OnTurnChanged;
         _healthSystem.OnDeadEvent += OnDead;
+    }
+
+    private void RemoveEvents()
+    {
+        TurnSystem.Instance.OnTurnChangedEvent -= OnTurnChanged;
+        _healthSystem.OnDeadEvent -= OnDead;
     }
 
 

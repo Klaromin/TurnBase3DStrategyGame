@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UnitAnimator : MonoBehaviour
@@ -13,6 +10,11 @@ public class UnitAnimator : MonoBehaviour
     private void Awake()
     {
         AddEvents();
+    }
+
+    private void OnDisable()
+    {
+        RemoveEvents();
     }
 
     private void OnStartMoving(object sender, EventArgs e)
@@ -42,11 +44,26 @@ public class UnitAnimator : MonoBehaviour
             moveAction.OnStartMovingEvent += OnStartMoving;
             moveAction.OnStopMovingEvent += OnStopMoving;
         }
-
+        
         if (TryGetComponent<ShootAction>(out var shootAction))
         {
             shootAction.OnShootEvent += OnShoot;
         }
+    }
+
+    private void RemoveEvents()
+    {        
+        if (TryGetComponent<MoveAction>(out var moveAction))
+        {
+            moveAction.OnStartMovingEvent -= OnStartMoving;
+            moveAction.OnStopMovingEvent -= OnStopMoving;
+        }
+
+        if (TryGetComponent<ShootAction>(out var shootAction))
+        {
+            shootAction.OnShootEvent -= OnShoot;
+        }
+
     }
 
 

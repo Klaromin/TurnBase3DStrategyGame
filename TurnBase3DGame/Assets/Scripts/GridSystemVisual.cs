@@ -138,16 +138,22 @@ public class GridSystemVisual : MonoBehaviour
     {
         UpdateGridVisual();
     }
+    private void OnAnyUnitDead(object sender, EventArgs e)
+    {
+        UpdateGridVisual();
+    }
 
     private void AddEvents()
     {
         UnitActionSystem.Instance.OnSelectedActionChangedEvent += OnSelectedActionChanged;
         LevelGrid.Instance.OnAnyUnitMovedGridPositionEvent += OnAnyUnitMovedGridPosition;
+        Unit.OnAnyUnitDeadEvent += OnAnyUnitDead;
     }
 
     private void RemoveEvents()
     {
         UnitActionSystem.Instance.OnSelectedActionChangedEvent -= OnSelectedActionChanged;
         LevelGrid.Instance.OnAnyUnitMovedGridPositionEvent -= OnAnyUnitMovedGridPosition;
+        Unit.OnAnyUnitDeadEvent -= OnAnyUnitDead;
     }
 }
