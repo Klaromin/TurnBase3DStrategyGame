@@ -7,7 +7,7 @@ public class Testing : MonoBehaviour
 {
    
     [SerializeField] private Unit unit;
-    private GridSystem _gridSystem;
+ 
 
     private void Update()
     {

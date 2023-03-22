@@ -84,11 +84,13 @@ public class UnitManager : MonoBehaviour
     private void AddEvents()
     {
         Unit.OnAnyUnitSpawnedEvent += OnAnyUnitSpawned;
+        Unit.OnAnyUnitDeadEvent += OnAnyUnitDead;
     }
 
     private void RemoveEvents()
     {
-        Unit.OnAnyUnitDeadEvent += OnAnyUnitDead;
+        Unit.OnAnyUnitSpawnedEvent -= OnAnyUnitSpawned;
+        Unit.OnAnyUnitDeadEvent -= OnAnyUnitDead;
     }
 
 
