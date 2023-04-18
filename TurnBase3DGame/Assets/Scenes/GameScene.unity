@@ -634,8 +634,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.22975266, y: -0.0000000187227, z: 0.0000000044198245, w: 0.9732491}
-  m_LocalPosition: {x: 2.36, y: 9.629993, z: -9.93}
+  m_LocalRotation: {x: 0.4241552, y: 1e-45, z: -1e-45, w: 0.9055895}
+  m_LocalPosition: {x: 2.36, y: 16.62999, z: -9.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1369,6 +1369,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32847a68e61a2e2449d0df9311ab220e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &940676635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940676637}
+  - component: {fileID: 940676636}
+  m_Layer: 0
+  m_Name: PathFinding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &940676636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940676635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e725b9d9ddca6aa418fbe71b0eeb978f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridDebugObject: {fileID: 9213379904013031368, guid: acd000943751251429d185a3a34b09b2,
+    type: 3}
+--- !u!4 &940676637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940676635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.211207, y: -0.29216337, z: 5.3710394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1004015505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,8 +2860,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817524060}
-  m_LocalRotation: {x: 0.22975266, y: -0.0000000187227, z: 0.0000000044198245, w: 0.9732491}
-  m_LocalPosition: {x: 2.36, y: 9.629993, z: -9.93}
+  m_LocalRotation: {x: 0.4241552, y: 1e-45, z: -1e-45, w: 0.9055895}
+  m_LocalPosition: {x: 2.36, y: 16.62999, z: -9.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2915,7 +2961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 4.999993, z: -10}
+  m_FollowOffset: {x: 0, y: 11.99999, z: -10}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
